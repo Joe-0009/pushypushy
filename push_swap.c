@@ -1,18 +1,6 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: Joe-0009 <Joe-0009@student.42.fr>         +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/18 21:33:42 by Joe-0009         #+#    #+#             */
-/*   Updated: 2024/12/18 21:33:42 by Joe-0009        ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "push_swap.h"
 
-static void	print_sorted_stack(t_stack *stack)
+void	print_sorted_stack(t_stack *stack)
 {
     t_stack	*tmp;
 
@@ -25,38 +13,6 @@ static void	print_sorted_stack(t_stack *stack)
         tmp = tmp->next;
     }
     write(1, "\n", 1);
-}
-
-static void	index_stack(t_stack **stack)
-{
-    t_stack	*ptr;
-    t_stack	*tmp;
-    int		min;
-    int		index;
-
-    index = 1;
-    while (index <= stack_size(*stack))
-    {
-        ptr = *stack;
-        min = INT_MAX;
-        while (ptr)
-        {
-            if (ptr->value < min && ptr->index == 0)
-                min = ptr->value;
-            ptr = ptr->next;
-        }
-        tmp = *stack;
-        while (tmp)
-        {
-            if (tmp->value == min && tmp->index == 0)
-            {
-                tmp->index = index;
-                break ;
-            }
-            tmp = tmp->next;
-        }
-        index++;
-    }
 }
 
 static int	check_number(char *str)

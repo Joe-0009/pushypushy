@@ -1,14 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: Joe-0009 <Joe-0009@student.42.fr>         +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/18 21:21:06 by Joe-0009         #+#    #+#             */
-/*   Updated: 2024/12/18 21:21:06 by Joe-0009        ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
@@ -16,7 +5,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
-
+#include <stdio.h>
 typedef struct s_stack
 {
     int				value;
@@ -70,4 +59,8 @@ int		is_sorted(t_stack *stack);
 int		has_duplicates(t_stack *stack);
 void	ft_putnbr(int n);
 
+int *stack_to_array(t_stack *stack);
+void sort_array(int *arr, int size);
+void index_stack(t_stack **stack);
+void	print_sorted_stack(t_stack *stack);
 #endif

@@ -1,14 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   cost.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: Joe-0009 <Joe-0009@student.42.fr>         +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/18 15:55:11 by Joe-0009         #+#    #+#             */
-/*   Updated: 2024/12/18 15:55:11 by Joe-0009        ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "push_swap.h"
 
@@ -42,6 +31,25 @@ void	get_cost(t_stack **a, t_stack **b)
     }
 }
 
+static void	do_rotate_both(t_stack **a, t_stack **b, int *cost_a, int *cost_b)
+{
+    while (*cost_a > 0 && *cost_b > 0)
+    {
+        rr(a, b);
+        (*cost_a)--;
+        (*cost_b)--;
+    }
+}
+static void	do_reverse_rotate_both(t_stack **a, t_stack **b, int *cost_a, int *cost_b)
+{
+    while (*cost_a < 0 && *cost_b < 0)
+    {
+        rrr(a, b);
+        (*cost_a)++;
+        (*cost_b)++;
+    }
+}
+
 void	do_cheapest_move(t_stack **a, t_stack **b)
 {
     t_stack	*tmp;
@@ -64,30 +72,13 @@ void	do_cheapest_move(t_stack **a, t_stack **b)
     do_move(a, b, cost_a, cost_b);
 }
 
-static void	do_rotate_both(t_stack **a, t_stack **b, int *cost_a, int *cost_b)
-{
-    while (*cost_a > 0 && *cost_b > 0)
-    {
-        rr(a, b);
-        (*cost_a)--;
-        (*cost_b)--;
-    }
-}
-
 void	do_move(t_stack **a, t_stack **b, int cost_a, int cost_b)
 {
     if (cost_a < 0 && cost_b < 0)
-    {
-        while (cost_a < 0 && cost_b < 0)
-        {
-            rrr(a, b);
-            cost_a++;
-            cost_b++;
-        }
-    }
+        do_reverse_rotate_both(a, b, &cost_a, &cost_b);
     else if (cost_a > 0 && cost_b > 0)
         do_rotate_both(a, b, &cost_a, &cost_b);
-    while (cost_b < 0)
+    while (6 < 0)
     {
         rrb(b, 1);
         cost_b++;
