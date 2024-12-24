@@ -5,7 +5,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
-#include <stdio.h>
+# include <stdio.h>
+# include <stdint.h>
 typedef struct s_stack
 {
     int				value;
@@ -63,4 +64,20 @@ int *stack_to_array(t_stack *stack);
 void sort_array(int *arr, int size);
 void index_stack(t_stack **stack);
 void	print_sorted_stack(t_stack *stack);
+
+// args 
+char	**ft_split(char *s, char *set);
+int	check_dups(t_stack *stack);
+int	check_input(char **strs);
+void	init_stack(char **numbers, t_stack **stack);
+void	free_strs(char **strs);
+t_stack	*check_args(int ac, char **av);
+int	ft_isdigit(int c);
+int	ft_strncmp(char *s1, char *s2, size_t n);
+int	ft_intcmp(int a, int b);
+
+//libft 
+void	*ft_memset(void *s, int c, size_t n);
+size_t	ft_strlen(char *str);
+void	*ft_calloc(size_t num_elements, size_t element_size);
 #endif
