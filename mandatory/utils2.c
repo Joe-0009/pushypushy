@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils2.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yrachidi <yrachidi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/25 16:44:11 by yrachidi          #+#    #+#             */
+/*   Updated: 2024/12/25 16:50:23 by yrachidi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	*stack_to_array(t_stack *stack)
@@ -18,8 +30,10 @@ int	*stack_to_array(t_stack *stack)
 		arr[i++] = stack->value;
 		stack = stack->next;
 	}
+	sort_array(arr, i);
 	return (arr);
 }
+
 void	sort_array(int *arr, int size)
 {
 	int	i;
@@ -43,6 +57,7 @@ void	sort_array(int *arr, int size)
 		i++;
 	}
 }
+
 void	index_stack(t_stack **stack)
 {
 	int		*arr;
@@ -54,9 +69,9 @@ void	index_stack(t_stack **stack)
 	if (size == 0)
 		return ;
 	arr = stack_to_array(*stack);
-	sort_array(arr, size);
 	tmp = *stack;
-	for (i = 0; i < size; ++i)
+	i = 0;
+	while (++i < size)
 	{
 		tmp = *stack;
 		while (tmp)
@@ -71,6 +86,7 @@ void	index_stack(t_stack **stack)
 	}
 	free(arr);
 }
+
 int	abs_value(int n)
 {
 	if (n < 0)

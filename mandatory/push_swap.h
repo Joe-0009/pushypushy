@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yrachidi <yrachidi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/25 16:43:58 by yrachidi          #+#    #+#             */
+/*   Updated: 2024/12/25 16:50:48 by yrachidi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
@@ -8,6 +19,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+
 typedef struct s_stack
 {
 	int				value;
@@ -29,15 +41,15 @@ int					stack_size(t_stack *stack);
 /* Operations */
 void				sa(t_stack **a, int print);
 void				sb(t_stack **b, int print);
-void				ss(t_stack **a, t_stack **b);
-void				pa(t_stack **a, t_stack **b);
-void				pb(t_stack **a, t_stack **b);
+void				ss(t_stack **a, t_stack **b, int print);
+void				pa(t_stack **a, t_stack **b, int print);
+void				pb(t_stack **a, t_stack **b, int print);
 void				ra(t_stack **a, int print);
 void				rb(t_stack **b, int print);
-void				rr(t_stack **a, t_stack **b);
+void				rr(t_stack **a, t_stack **b, int print);
 void				rra(t_stack **a, int print);
 void				rrb(t_stack **b, int print);
-void				rrr(t_stack **a, t_stack **b);
+void				rrr(t_stack **a, t_stack **b, int print);
 
 /* Position Functions positions.c*/
 int					get_target(t_stack **a, int b_idx, int target_idx,

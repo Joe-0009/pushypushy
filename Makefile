@@ -17,7 +17,18 @@ SRCS = mandatory/cost.c \
 		mandatory/utils2.c \
 		bonus/get_next_line_utils.c \
 
-
+BONUS = bonus/checker.c \
+		mandatory/operations.c \
+		mandatory/operations2.c \
+		mandatory/operations3.c \
+		mandatory/parsing.c \
+		mandatory/utils.c \
+		mandatory/utils2.c \
+		bonus/get_next_line_utils.c \
+		bonus/get_next_line.c \
+		mandatory/stack.c \
+		mandatory/string.c \
+		mandatory/ft_split.c \
 
 OBJS = $(SRCS:.c=.o)
 BOBJS = $(BONUS:.c=.o)

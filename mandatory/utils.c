@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yrachidi <yrachidi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/25 16:44:08 by yrachidi          #+#    #+#             */
+/*   Updated: 2024/12/25 16:57:03 by yrachidi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
@@ -6,7 +17,6 @@ void	ft_error(void)
 	write(2, "Error\n", 6);
 	exit(1);
 }
-
 
 int	ft_atoi(const char *str, char **numbers, t_stack **stack)
 {
@@ -28,17 +38,17 @@ int	ft_atoi(const char *str, char **numbers, t_stack **stack)
 		if (ft_isdigit(str[i]))
 			result = result * 10 + str[i++] - '0';
 		else
-			return (free_strs(numbers), stack_clear(stack),
-				ft_error(), 1);
-		if(!(((result * sign) <= INT_MAX && (result * sign) >= INT_MIN)))
-		return (free_strs(numbers), stack_clear(stack),
-			ft_error(), 1);
+			return (free_strs(numbers), stack_clear(stack), ft_error(), 1);
+		if (!(((result * sign) <= INT_MAX && (result * sign) >= INT_MIN)))
+			return (free_strs(numbers), stack_clear(stack), ft_error(), 1);
 	}
 	return (result * sign);
 }
 
 int	is_sorted(t_stack *stack)
 {
+	if (!stack)
+		return (0);
 	while (stack->next)
 	{
 		if (stack->value > stack->next->value)

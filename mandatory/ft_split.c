@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yrachidi <yrachidi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/25 16:43:39 by yrachidi          #+#    #+#             */
+/*   Updated: 2024/12/25 16:45:06 by yrachidi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static int	is_c_in_str(char c, char *str)
@@ -63,10 +75,10 @@ static void	free_all(char **strs, int i)
 
 char	**ft_split(char *s, char *set)
 {
-	char **strings;
-	int i;
-	int j;
-	int count;
+	char	**strings;
+	int		i;
+	int		j;
+	int		count;
 
 	if (!s)
 		return (NULL);

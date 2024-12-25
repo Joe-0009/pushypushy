@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yrachidi <yrachidi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/25 16:43:55 by yrachidi          #+#    #+#             */
+/*   Updated: 2024/12/25 16:47:31 by yrachidi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	print_sorted_stack(t_stack *stack)
@@ -36,7 +48,6 @@ int	main(int argc, char **argv)
 		else
 			sort_stack(&a, &b);
 	}
-	print_sorted_stack(a);
 	stack_clear(&a);
 	stack_clear(&b);
 	return (0);

@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cost.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yrachidi <yrachidi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/25 16:43:37 by yrachidi          #+#    #+#             */
+/*   Updated: 2024/12/25 16:47:21 by yrachidi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
@@ -28,17 +39,18 @@ void	do_rotate_both(t_stack **a, t_stack **b, int *cost_a, int *cost_b)
 {
 	while (*cost_a > 0 && *cost_b > 0)
 	{
-		rr(a, b);
+		rr(a, b, 1);
 		(*cost_a)--;
 		(*cost_b)--;
 	}
 }
+
 void	do_reverse_rotate_both(t_stack **a, t_stack **b, int *cost_a,
 		int *cost_b)
 {
 	while (*cost_a < 0 && *cost_b < 0)
 	{
-		rrr(a, b);
+		rrr(a, b, 1);
 		(*cost_a)++;
 		(*cost_b)++;
 	}
@@ -93,5 +105,5 @@ void	do_move(t_stack **a, t_stack **b, int cost_a, int cost_b)
 		ra(a, 1);
 		cost_a--;
 	}
-	pa(a, b);
+	pa(a, b, 1);
 }
