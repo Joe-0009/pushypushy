@@ -34,7 +34,7 @@ int	check_input(char **strs)
 			if (strs[i][j] == '-' || strs[i][j] == '+')
 				++j;
 			if (strs[i][j] == '-' || strs[i][j] == '+'
-			|| !ft_isdigit(strs[i][j]))
+				|| !ft_isdigit(strs[i][j]))
 				return (EXIT_FAILURE);
 		}
 	}
@@ -43,7 +43,7 @@ int	check_input(char **strs)
 
 void	init_stack(char **numbers, t_stack **stack)
 {
-	int		i;
+	int	i;
 
 	i = -1;
 	while (numbers[++i])
@@ -80,6 +80,6 @@ t_stack	*check_args(int ac, char **av)
 	}
 	if (check_dups(stack))
 		return (stack_clear(&stack), NULL);
-    index_stack(&stack);
+	index_stack(&stack);
 	return (stack);
 }

@@ -1,19 +1,5 @@
 #include "push_swap.h"
 
-
-
-
-size_t	ft_strlen(char *str)
-{
-	size_t	i;
-
-	if (!str)
-		return (0);
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
 static int	is_c_in_str(char c, char *str)
 {
 	int	i;
@@ -77,10 +63,10 @@ static void	free_all(char **strs, int i)
 
 char	**ft_split(char *s, char *set)
 {
-	char	**strings;
-	int		i;
-	int		j;
-	int		count;
+	char **strings;
+	int i;
+	int j;
+	int count;
 
 	if (!s)
 		return (NULL);

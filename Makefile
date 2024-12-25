@@ -1,26 +1,43 @@
 NAME = push_swap
+BNAME = checker
+CC = cc 
+CFLAGS = -Wall -Wextra -Werror
+SRCS = mandatory/cost.c \
+		mandatory/ft_split.c \
+		mandatory/operations.c \
+		mandatory/operations2.c \
+		mandatory/operations3.c \
+		mandatory/parsing.c \
+		mandatory/positions.c \
+		mandatory/push_swap.c \
+		mandatory/sort.c \
+		mandatory/stack.c \
+		mandatory/string.c \
+		mandatory/utils.c \
+		mandatory/utils2.c \
+		bonus/get_next_line_utils.c \
 
-SRCS = push_swap.c utils.c operations.c operations2.c operations3.c sort.c stack.c cost.c sort_utils.c positions.c utils2.c parsing.c ft_split.c string.c
+
 
 OBJS = $(SRCS:.c=.o)
+BOBJS = $(BONUS:.c=.o)
 
-CC = cc
-CFLAGS = -Wall -Wextra -Werror
+all : $(NAME)
 
-all: $(NAME)
+$(NAME) : $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $@
+	@make clean
+	
+bonus : $(BOBJS)
+	$(CC) $(CFLAGS) $(BOBJS) -o $(BNAME)
+	@make clean
 
-$(NAME): $(OBJS)
-	$(CC) $(OBJS) -o $(NAME)
+clean : 
+	@rm -rf $(OBJS) $(BOBJS)
 
-%.o: %.c push_swap.h
-	$(CC) $(CFLAGS) -c $< -o $@
+fclean : clean
+	@rm -f $(NAME) $(BNAME)
 
-clean:
-	rm -f $(OBJS)
+re : fclean all
 
-fclean: clean
-	rm -f $(NAME)
-
-re: fclean all
-
-.PHONY: all clean fclean re
+.SECONDARY : $(OBJS)
