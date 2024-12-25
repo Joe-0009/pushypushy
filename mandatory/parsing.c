@@ -47,7 +47,7 @@ void	init_stack(char **numbers, t_stack **stack)
 
 	i = -1;
 	while (numbers[++i])
-		stack_add_back(stack, stack_new(ft_atoi(numbers[i])));
+		stack_add_back(stack, stack_new(ft_atoi(numbers[i], numbers, stack)));
 }
 
 void	free_strs(char **strs)

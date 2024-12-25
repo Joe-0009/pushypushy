@@ -63,7 +63,7 @@ void				do_cheapest_move(t_stack **a, t_stack **b);
 void				do_move(t_stack **a, t_stack **b, int cost_a, int cost_b);
 
 /* Utils */
-long				ft_atoi(const char *str);
+int					ft_atoi(const char *str, char **numbers, t_stack **stack);
 void				ft_error(void);
 int					is_sorted(t_stack *stack);
 int					has_duplicates(t_stack *stack);

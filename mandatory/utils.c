@@ -7,33 +7,34 @@ void	ft_error(void)
 	exit(1);
 }
 
-long	ft_atoi(const char *str)
+
+int	ft_atoi(const char *str, char **numbers, t_stack **stack)
 {
+	int		i;
 	long	result;
 	int		sign;
-	int		i;
 
+	i = 0;
 	result = 0;
 	sign = 1;
-	i = 0;
-	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
-		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
 			sign = -1;
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+	while (str[i])
 	{
-		result = result * 10 + (str[i] - '0');
-		if (result > INT_MAX && sign == 1)
-			ft_error();
-		if (result > ((long)INT_MAX + 1) && sign == -1)
-			ft_error();
-		i++;
+		if (ft_isdigit(str[i]))
+			result = result * 10 + str[i++] - '0';
+		else
+			return (free_strs(numbers), stack_clear(stack),
+				ft_error(), 1);
+		if(!(((result * sign) <= INT_MAX && (result * sign) >= INT_MIN)))
+		return (free_strs(numbers), stack_clear(stack),
+			ft_error(), 1);
 	}
-	return (sign * result);
+	return (result * sign);
 }
 
 int	is_sorted(t_stack *stack)
