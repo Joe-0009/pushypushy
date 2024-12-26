@@ -37,17 +37,15 @@ all : $(NAME)
 
 $(NAME) : $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $@
-	@make clean
 	
 bonus : $(BOBJS)
 	$(CC) $(CFLAGS) $(BOBJS) -o $(BNAME)
-	@make clean
 
 clean : 
-	@rm -rf $(OBJS) $(BOBJS)
+	rm -rf $(OBJS) $(BOBJS)
 
 fclean : clean
-	@rm -f $(NAME) $(BNAME)
+	rm -f $(NAME) $(BNAME)
 
 re : fclean all
 
